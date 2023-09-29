@@ -33,3 +33,5 @@ Transform the behavior of a square when interacting with the mouse by introducin
 2. Additionally, implement a progressive darkening effect where each interaction adds 10% more black or color to the square. The objective is to achieve a completely black square only after ten interactions.
 
 You can choose to do either one or both of these challenges, it’s up to you.
+
+testing
