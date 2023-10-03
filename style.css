@@ -6,7 +6,7 @@
 
 body {
     font-family: Cantarell, "Segoe UI";
-    background-color: #1E1E1E;
+    background-color: #0d1117;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,6 +14,45 @@ body {
     height: 100vh;
 }
 
+/* Header and footer sections */
+.header, .footer {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0px;
+    font-size: 24px;
+    font-family: monospace;
+}
+
+.footer h1 {
+    font-size: 18px;
+}
+
+/* Matrix for all squares */
+.main-matrix {
+    height: 160px;
+    width: 160px;
+    border: 2px solid #F2F2F2;
+    border-radius: 10%;
+}
+
+/* Main section */
+.container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #222831;
+}
+
+/* General text */
 h1, h2, p {
     color: #F2F2F2;
+    padding: 24px 0px;
+    justify-content: center;
+}
+
+a {
+    color: cyan;
+    font-weight: 450;
 }
