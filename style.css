@@ -21,10 +21,11 @@ body {
     padding: 12px 0px;
     font-size: 24px;
     font-family: monospace;
+    font-weight: normal;
 }
 
 .footer h1 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Matrix for all squares */
