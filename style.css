@@ -30,10 +30,19 @@ body {
 
 /* Matrix for all squares */
 .main-matrix {
-    height: 160px;
-    width: 160px;
+    height: 600px;
+    width: 600px;
+    border: 2px solid #F2F2F2;
+    border-radius: 2.5%;
+}
+
+/* 16 squares to fit canvas */
+.squares {
+    height: 37.5px;
+    width: 37.5px;
     border: 2px solid #F2F2F2;
     border-radius: 10%;
+    margin: 12px;
 }
 
 /* Main section */
@@ -44,6 +53,7 @@ body {
     justify-content: center;
     flex-direction: column;
     background-color: #222831;
+    padding: 60px 0px 120px 0px;
 }
 
 /* General text */
