@@ -15,11 +15,11 @@ const squares = document.createElement('div');
 
 // Create a grid of variable elements
 function gridCreate(size) {
-    for (let rows = 0; rows = size; rows++) {
+    for (let rows = 0; rows <= size; rows++) {
         for (let cols = 0; cols <= size; cols++) {
             // Append the squares into the grid
         }
     }
 }
 
-gridCreate(16);
+// gridCreate(16);
