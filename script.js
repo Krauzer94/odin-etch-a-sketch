@@ -10,13 +10,16 @@ container.appendChild(matrix);
 
 // Internal squares
 const squares = document.createElement('div');
-squares.classList.add('squares');
-matrix.appendChild(squares);
+// squares.classList.add('squares');
+// matrix.appendChild(squares);
 
-// Adding all 32 squares
-const temp = [];
-for (let i = 0; i <= 32; i++) {
-    temp.push(squares);
+// Create a grid of variable elements
+function gridCreate(size) {
+    for (let rows = 0; rows = size; rows++) {
+        for (let cols = 0; cols <= size; cols++) {
+            // Append the squares into the grid
+        }
+    }
 }
 
-matrix.appendChild(temp);
+gridCreate(16);
