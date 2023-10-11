@@ -6,7 +6,7 @@
 
 body {
     font-family: Cantarell, "Segoe UI";
-    background-color: #0d1117;
+    background-color: #909090;
     margin: 0;
     padding: 0;
     display: flex;
@@ -24,6 +24,10 @@ body {
     font-weight: normal;
 }
 
+.header h1, .footer h1 {
+    color: #F2F2F2;
+}
+
 .footer h1 {
     font-size: 16px;
 }
@@ -32,7 +36,7 @@ body {
 .main-matrix {
     height: 600px;
     width: 600px;
-    border: 2px solid #F2F2F2;
+    border: 2px solid #202020;
     border-radius: 2.5%;
 }
 
@@ -40,7 +44,7 @@ body {
 .squares {
     height: 37.5px;
     width: 37.5px;
-    border: 2px solid #F2F2F2;
+    border: 2px solid #202020;
     border-radius: 10%;
     margin: 12px;
 }
@@ -52,13 +56,13 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #222831;
+    background-color: #D3D3D3;
     padding: 60px 0px 120px 0px;
 }
 
 /* General text */
 h1, h2, p {
-    color: #F2F2F2;
+    color: #202020;
     padding: 24px 0px;
     justify-content: center;
 }
