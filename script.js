@@ -8,17 +8,10 @@ container.appendChild(matrix);
 
 // 16x16 cells generation
 function createGrid(size) {
-    // Rows loop
-    for (let rows = 0; rows < size; rows++) {
+    for (let rows = 0; rows < size * size; rows++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
         matrix.appendChild(cells);
-        // Columns loop
-        for (let cols = 0; cols < size - 1; cols++) {
-            let cells = document.createElement('div');
-            cells.classList.add('cells');
-            matrix.appendChild(cells);
-        }
     }
 }
 
