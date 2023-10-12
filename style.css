@@ -33,7 +33,7 @@ body {
 }
 
 /* Matrix for all squares */
-.main-matrix {
+.main-matrix, .second-matrix {
     height: 600px;
     width: 600px;
     border: 2px solid #202020;
@@ -44,7 +44,7 @@ body {
 .squares {
     height: 37.5px;
     width: 37.5px;
-    border: 2px solid #202020;
+    border: 2px solid red;
     border-radius: 10%;
     margin: 12px;
 }
