@@ -1,5 +1,6 @@
-// Constant tag selectors
+// Constant element selectors
 const container = document.querySelector('.container');
+const gridCells = document.querySelectorAll('.cells');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -15,4 +16,12 @@ function createGrid(size) {
     }
 }
 
+// Grid size scale
 createGrid(16);
+
+// Hover color change
+gridCells.forEach((cell) => (
+    cell.addEventListener('mouseover', () => {
+        cell.setAttribute('style', 'background-color: black');
+    })
+));
