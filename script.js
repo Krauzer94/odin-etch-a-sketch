@@ -1,6 +1,5 @@
 // Constant element selectors
 const container = document.querySelector('.container');
-const gridCells = document.querySelectorAll('.cells');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -12,6 +11,7 @@ function createGrid(size) {
     for (let rows = 0; rows < size * size; rows++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
+        // cells.setAttribute('onmouseover', 'mouseOver()');
         matrix.appendChild(cells);
     }
 }
@@ -19,9 +19,10 @@ function createGrid(size) {
 // Grid size scale
 createGrid(16);
 
-// Hover color change
-gridCells.forEach((cell) => (
-    cell.addEventListener('mouseover', () => {
-        cell.setAttribute('style', 'background-color: black');
-    })
-));
+// Hover color event
+container.addEventListener('mouseover', function (event) {
+    if(event.target.matches('.cells')) {
+        // Black testing color
+        event.target.setAttribute('style', 'background-color: black');
+    }
+});
