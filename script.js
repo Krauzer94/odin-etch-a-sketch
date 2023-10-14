@@ -22,11 +22,9 @@ createGrid(16);
 // Default size initializer
 if (gridSize = undefined) { gridSize = 16 }
 
-console.log(gridSize); // TODO Logs actual gridSize
-
 // Change grid-size prompt
 sizeButton.addEventListener('click', () => {
-    const gridSize = prompt('Enter desired grid size: ');
+    const gridSize = prompt('Desired grid size (default is 16x16)');
     createGrid(gridSize);
     console.log(gridSize);
 });
@@ -34,7 +32,6 @@ sizeButton.addEventListener('click', () => {
 // Hover color event
 container.addEventListener('mouseover', function (event) {
     if (event.target.matches('.cells')) {
-        // Black testing color
         event.target.setAttribute('style', 'background-color: black');
     }
 });
