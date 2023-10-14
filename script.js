@@ -1,5 +1,6 @@
 // Constant element selectors
 const container = document.querySelector('.container');
+const sizeButton = document.getElementById('size-btn');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -11,13 +12,22 @@ function createGrid(size) {
     for (let rows = 0; rows < size * size; rows++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
-        // cells.setAttribute('onmouseover', 'mouseOver()');
         matrix.appendChild(cells);
     }
 }
 
-// Grid size scale
-createGrid(16);
+// Default 16x16 grid
+if (gridSize = undefined) {
+    gridSize = 16;
+} else {
+    createGrid(gridSize);
+}
+
+// Change grid-size prompt
+sizeButton.addEventListener('click', () => {
+    const gridSize = prompt('Enter desired grid size: ');
+    console.log(gridSize);
+});
 
 // Hover color event
 container.addEventListener('mouseover', function (event) {
