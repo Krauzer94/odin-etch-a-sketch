@@ -17,21 +17,23 @@ function createGrid(size) {
 }
 
 // Default 16x16 grid
-if (gridSize = undefined) {
-    gridSize = 16;
-} else {
-    createGrid(gridSize);
-}
+createGrid(16);
+
+// Default size initializer
+if (gridSize = undefined) { gridSize = 16 }
+
+console.log(gridSize); // TODO Logs actual gridSize
 
 // Change grid-size prompt
 sizeButton.addEventListener('click', () => {
     const gridSize = prompt('Enter desired grid size: ');
+    createGrid(gridSize);
     console.log(gridSize);
 });
 
 // Hover color event
 container.addEventListener('mouseover', function (event) {
-    if(event.target.matches('.cells')) {
+    if (event.target.matches('.cells')) {
         // Black testing color
         event.target.setAttribute('style', 'background-color: black');
     }
