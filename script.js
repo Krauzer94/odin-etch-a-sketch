@@ -34,13 +34,13 @@ rainbowButton.addEventListener('click', () => {
     // TODO CSS random colors function
 });
 
-// Reset grid canvas // ! NOT WORKING
-// TODO set background-color to white
+// Reset grid canvas
 const resetButton = document.getElementById('reset-btn');
-resetButton.addEventListener('click', function (event) {
-    if (event.target.matches('.cells')) {
-        event.target.setAttribute('style', 'background-color: white');
-    }
+const gridCells = document.querySelectorAll('.cells');
+resetButton.addEventListener('click', () => {
+    gridCells.forEach(cell => {
+        cell.style.backgroundColor = 'white';
+    })
 });
 
 // Hover color event
