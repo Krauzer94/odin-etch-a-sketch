@@ -32,6 +32,16 @@ sizeButton.addEventListener('click', () => {
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
     // TODO CSS random colors function
+    rainbowButton.style.borderColor = 'yellow';
+    rainbowButton.style.color = 'yellow';
+});
+
+// Black color mode
+const blackButton = document.getElementById('black-btn');
+blackButton.addEventListener('click', () => {
+    // TODO Reset to black cells
+    rainbowButton.style.borderColor = 'violet';
+    rainbowButton.style.color = 'white';
 });
 
 // Reset grid canvas
