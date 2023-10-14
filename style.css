@@ -19,7 +19,6 @@ body {
 .footer {
     display: flex;
     justify-content: center;
-    padding: 12px 0px;
     font-size: 20px;
     font-family: monospace;
     font-weight: normal;
@@ -74,23 +73,39 @@ p {
     display: flex;
 }
 
-/* Button section */
-.buttons-section {
+/* Buttons section */
+.options-buttons {
+    gap: 36px;
     margin: 12px 0px 24px 0px;
     width: 100vw;
     display: flex;
     justify-content: center;
 }
 
-/* Size button */
+/* Button defaults */
 button {
-    height: 64px;
-    width: 256px;
+    padding: 16px 28px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 12px;
+}
+
+/* Grid size button */
+#size-btn {
     background-color: cyan;
     border-color: cyan;
+}
+
+/* Rainbow mode button */
+#rainbow-btn {
+    background-color: pink;
+    border-color: pink;
+}
+
+/* Reset button */
+#reset-btn {
+    background-color: yellow;
+    border-color: yellow;
 }
 
 a {

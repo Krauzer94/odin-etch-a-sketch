@@ -1,6 +1,5 @@
-// Constant element selectors
+// Main container selector
 const container = document.querySelector('.container');
-const sizeButton = document.getElementById('size-btn');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -9,7 +8,7 @@ container.appendChild(matrix);
 
 // 16x16 cells generation
 function createGrid(size) {
-    for (let rows = 0; rows < size * size; rows++) {
+    for (let i = 0; i < size * size; i++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
         matrix.appendChild(cells);
@@ -22,11 +21,26 @@ createGrid(16);
 // Default size initializer
 if (gridSize = undefined) { gridSize = 16 }
 
-// Change grid-size prompt
+// Grid size prompt // TODO resize cells divs
+const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
-    const gridSize = prompt('Desired grid size (default is 16x16)');
+    const gridSize = prompt('Enter the desired grid size\n(default 16x16, max 100x100)');
     createGrid(gridSize);
-    console.log(gridSize);
+});
+
+// Random color mode
+const rainbowButton = document.getElementById('rainbow-btn');
+rainbowButton.addEventListener('click', () => {
+    // TODO CSS random colors function
+});
+
+// Reset grid canvas // ! NOT WORKING
+// TODO set background-color to white
+const resetButton = document.getElementById('reset-btn');
+resetButton.addEventListener('click', function (event) {
+    if (event.target.matches('.cells')) {
+        event.target.setAttribute('style', 'background-color: white');
+    }
 });
 
 // Hover color event
