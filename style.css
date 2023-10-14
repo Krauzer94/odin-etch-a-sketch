@@ -15,7 +15,8 @@ body {
 }
 
 /* Header and footer sections */
-.header, .footer {
+.header,
+.footer {
     display: flex;
     justify-content: center;
     padding: 12px 0px;
@@ -24,7 +25,8 @@ body {
     font-weight: normal;
 }
 
-.header h1, .footer h1 {
+.header h1,
+.footer h1 {
     color: #F2F2F2;
 }
 
@@ -62,7 +64,9 @@ body {
 }
 
 /* General text */
-h1, h2, p {
+h1,
+h2,
+p {
     color: #202020;
     padding: 24px 0px;
     justify-content: center;
