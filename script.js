@@ -24,7 +24,7 @@ if (gridSize = undefined) { gridSize = 16 }
 // Change grid size //! Resize cell divs
 const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
-    const gridSize = prompt('Enter the desired grid size\n(default 16x16, max 100x100)');
+    const gridSize = prompt('Enter the desired size (minimum of 1x1)\n(default  is 16x16 and the max is 100x100)');
     createGrid(gridSize);
 });
 
@@ -33,11 +33,15 @@ const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
     rainbowButton.style.borderColor = 'yellow';
     rainbowButton.style.color = 'yellow';
+    blackButton.style.borderColor = 'black';
+    blackButton.style.color = 'white';
 });
 
-// Black color mode //? Revert to black cells
+// Black color mode
 const blackButton = document.getElementById('black-btn');
 blackButton.addEventListener('click', () => {
+    blackButton.style.borderColor = 'yellow';
+    blackButton.style.color = 'yellow';
     rainbowButton.style.borderColor = 'violet';
     rainbowButton.style.color = 'white';
 });
