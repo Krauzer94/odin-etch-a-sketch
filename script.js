@@ -6,29 +6,31 @@ const matrix = document.createElement('div');
 matrix.classList.add('matrix');
 container.appendChild(matrix);
 
-// 16x16 cells generation
-function createGrid(size) {
-    for (let i = 0; i < size * size; i++) {
+// Generate default grid
+function defaultGrid(defaultSize = 16) {
+    for (let i = 0; i < defaultSize * defaultSize; i++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
         matrix.appendChild(cells);
     }
-}
+} defaultGrid();
 
-// Default 16x16 grid
-createGrid(16);
-
-// Default size initializer
-if (gridSize = undefined) { gridSize = 16 }
-
-// Change grid size //! Resize cell divs
+// TODO Change grid size
+/**
+ * Consists of a total of three steps:
+ * 1. Remove all previously added cells
+ * 2. Add new number of cells from prompt
+ * 3. Style cells with the default style
+ */
 const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
-    const gridSize = prompt('Enter the desired size (minimum of 1x1)\n(default  is 16x16 and the max is 100x100)');
-    createGrid(gridSize);
+    const newGridSize = prompt('Desired grid size (from 1 up to 100)');
+    removeCells(); // Step number #1
+    // Step number #2
+    createNewGrid(newGridSize); // Step number #3
 });
 
-// Random color mode //? CSS random colors
+// TODO Random color mode
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
     rainbowButton.style.borderColor = 'yellow';
@@ -37,7 +39,7 @@ rainbowButton.addEventListener('click', () => {
     blackButton.style.color = 'white';
 });
 
-// Black color mode
+// TODO Black color mode
 const blackButton = document.getElementById('black-btn');
 blackButton.addEventListener('click', () => {
     blackButton.style.borderColor = 'yellow';
@@ -46,7 +48,7 @@ blackButton.addEventListener('click', () => {
     rainbowButton.style.color = 'white';
 });
 
-// Reset grid canvas
+// Reset grid canvas // TODO reset newly generated cells
 const resetButton = document.getElementById('reset-btn');
 const gridCells = document.querySelectorAll('.cells');
 resetButton.addEventListener('click', () => {

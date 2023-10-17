@@ -35,18 +35,22 @@ body {
 
 /* Matrix for cells */
 .matrix {
-    height: 484px;
-    width: 484px;
+    box-sizing: content-box;
+    background-color: white;
     border: 2px solid #202020;
+    margin: 12px auto;
+    height: 480px;
+    width: 480px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 /* Cell styling */
 .cells {
-    height: 30px;
-    width: 30px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 30px;
+    box-sizing: border-box;
     border: 1px solid black;
     background-color: white;
 }
