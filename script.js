@@ -6,16 +6,38 @@ const matrix = document.createElement('div');
 matrix.classList.add('matrix');
 container.appendChild(matrix);
 
+/** Canva elements defaults
+ * Matrix grid size: 480x480
+ * Cell number: 256 (16x16)
+ * Cell default size: 30x30
+ */
+
 // Generate default grid
-function defaultGrid(defaultSize = 16) {
-    for (let i = 0; i < defaultSize * defaultSize; i++) {
+function defaultGrid() {
+    for (let i = 0; i < 256; i++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
         matrix.appendChild(cells);
     }
 } defaultGrid();
 
-// TODO Change grid size
+// Remove existing cells
+function removeCells() {
+    while (matrix.hasChildNodes()) {
+        matrix.removeChild(matrix.firstChild);
+    }
+}
+
+// TODO Resize grid canva
+function newGrid() {
+    /**
+     * Math for the default size:
+     * 480px / 16 cells = 30px (cell size, aka flex-basis)
+     * For 32 cells is: 480px / 32 = 15px (new flex-basis)
+     */
+}
+
+// TODO Resize canva trigger
 /**
  * Consists of a total of three steps:
  * 1. Remove all previously added cells
@@ -24,13 +46,13 @@ function defaultGrid(defaultSize = 16) {
  */
 const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
-    const newGridSize = prompt('Desired grid size (from 1 up to 100)');
+    const newSize = prompt('Desired grid size (from 1 up to 100)');
     removeCells(); // Step number #1
-    // Step number #2
-    createNewGrid(newGridSize); // Step number #3
+    newGrid(newSize); // Step number #2
+    removeStyle(); // Step number #3
 });
 
-// TODO Random color mode
+// ? Random color mode
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
     rainbowButton.style.borderColor = 'yellow';
@@ -39,7 +61,7 @@ rainbowButton.addEventListener('click', () => {
     blackButton.style.color = 'white';
 });
 
-// TODO Black color mode
+// ? Black color mode
 const blackButton = document.getElementById('black-btn');
 blackButton.addEventListener('click', () => {
     blackButton.style.borderColor = 'yellow';
