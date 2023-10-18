@@ -1,16 +1,19 @@
-// Main container selector
+/**
+ * Canva elements defaults
+ * Matrix grid size: 480x480
+ * Cell number: 256 (16x16)
+ * Cell default size: 30x30
+ */
+
+// Sets major selectors
 const container = document.querySelector('.container');
+const gridCells = document.querySelectorAll('.cells');
+const newGridCells = document.querySelectorAll('.new-cells'); // ?? Not used yet
 
 // Central grid matrix
 const matrix = document.createElement('div');
 matrix.classList.add('matrix');
 container.appendChild(matrix);
-
-/** Canva elements defaults
- * Matrix grid size: 480x480
- * Cell number: 256 (16x16)
- * Cell default size: 30x30
- */
 
 // Generate default grid
 function defaultGrid() {
@@ -21,38 +24,33 @@ function defaultGrid() {
     }
 } defaultGrid();
 
-// Remove existing cells
-function removeCells() {
+// Resize grid canva
+function newGrid(newSize) {
+    // Calculate new flex-basis
+    let newFlexBasis = 480 / newSize;
+
+    // Remove existing cells
     while (matrix.hasChildNodes()) {
         matrix.removeChild(matrix.firstChild);
     }
+
+    // Append new resized cells
+    for (let i = 0; i < newSize * newSize; i++) {
+        let cells = document.createElement('div');
+        cells.classList.toggle('new-cells');
+        cells.style.flexBasis = `${newFlexBasis}px`;
+        matrix.appendChild(cells);
+    }
 }
 
-// TODO Resize grid canva
-function newGrid() {
-    /**
-     * Math for the default size:
-     * 480px / 16 cells = 30px (cell size, aka flex-basis)
-     * For 32 cells is: 480px / 32 = 15px (new flex-basis)
-     */
-}
-
-// TODO Resize canva trigger
-/**
- * Consists of a total of three steps:
- * 1. Remove all previously added cells
- * 2. Add new number of cells from prompt
- * 3. Style cells with the default style
- */
+// Resize canva trigger
 const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
     const newSize = prompt('Desired grid size (from 1 up to 100)');
-    removeCells(); // Step number #1
-    newGrid(newSize); // Step number #2
-    removeStyle(); // Step number #3
+    newGrid(newSize); // Append resized cells
 });
 
-// ? Random color mode
+// TODO Random color mode
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
     rainbowButton.style.borderColor = 'yellow';
@@ -61,7 +59,7 @@ rainbowButton.addEventListener('click', () => {
     blackButton.style.color = 'white';
 });
 
-// ? Black color mode
+// TODO Black color mode
 const blackButton = document.getElementById('black-btn');
 blackButton.addEventListener('click', () => {
     blackButton.style.borderColor = 'yellow';
@@ -70,18 +68,17 @@ blackButton.addEventListener('click', () => {
     rainbowButton.style.color = 'white';
 });
 
-// Reset grid canvas // TODO reset newly generated cells
+// Reset grid canvas // ?? New cells don't reset
 const resetButton = document.getElementById('reset-btn');
-const gridCells = document.querySelectorAll('.cells');
 resetButton.addEventListener('click', () => {
     gridCells.forEach(cell => {
         cell.style.backgroundColor = 'white';
     })
 });
 
-// Hover color event
-container.addEventListener('mouseover', function (event) {
-    if (event.target.matches('.cells')) {
+// Hover color event // !! Behavior after resizing
+matrix.addEventListener('mouseover', function (event) {
+    if (event.target.matches('.cells') || event.target.matches('.new-cells')) {
         event.target.setAttribute('style', 'background-color: black');
     }
 });
