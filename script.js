@@ -7,7 +7,7 @@
 
 // Sets major selectors
 const container = document.querySelector('.container');
-const gridCells = document.querySelectorAll('.matrix > div');
+const gridCells = document.querySelectorAll('.cells');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -36,8 +36,9 @@ function newGrid(newSize) {
     // Append new resized cells
     for (let i = 0; i < newSize * newSize; i++) {
         let cells = document.createElement('div');
-        cells.classList.toggle('new-cells');
-        cells.style.flexBasis = `${newFlexBasis}px`;
+        cells.classList.add('cells');
+        cells.style.height = `${newFlexBasis}px`;
+        cells.style.width = `${newFlexBasis}px`;
         matrix.appendChild(cells);
     }
 }
@@ -50,13 +51,13 @@ sizeButton.addEventListener('click', () => {
 });
 
 // Hover color event // !! Behavior after resizing
-matrix.addEventListener('mouseover', function (event) {
-    if (event.target.matches('.matrix > div')) {
-        event.target.setAttribute('style', 'background-color: black');
+matrix.addEventListener('mouseover', function (e) {
+    if (e.target.matches('.matrix > div')) {
+        e.target.setAttribute('style', 'background-color: black');
     }
 });
 
-// Reset grid canva // !! New cells don't reset
+// Reset grid canva
 const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener('click', () => {
     matrix.childNodes.forEach((child) => {
