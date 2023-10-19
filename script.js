@@ -24,6 +24,12 @@ function defaultGrid() {
     }
 } defaultGrid();
 
+// Actual size information
+const actualSize = document.createElement('div');
+actualSize.classList.add('actual-size');
+actualSize.textContent = `Actual size: 16x16`;
+container.appendChild(actualSize);
+
 // Resize grid canva
 function newGrid(newSize) {
     // Calculate new size
@@ -47,7 +53,16 @@ const sizeButton = document.getElementById('size-btn');
 sizeButton.addEventListener('click', () => {
     const newSize = prompt('Desired grid size (from 1 up to 100)');
     newGrid(newSize); // Resize grid canva
+    updateActualSize(newSize);
 });
+
+// Update actual size
+function updateActualSize (newSize) {
+    sizeButton.addEventListener('click', () => {
+        return newSize;
+    });
+    return actualSize.textContent = `SIZE: ${newSize}x${newSize}`;
+}
 
 // Reset grid canva
 const resetButton = document.getElementById('reset-btn');

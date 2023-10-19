@@ -38,6 +38,7 @@ body {
     box-sizing: content-box;
     border: 2px solid #202020;
     margin: 12px auto;
+    margin-bottom: 36px;
     height: 480px;
     width: 480px;
     display: flex;
@@ -81,6 +82,15 @@ p {
     margin: 12px 0px 24px 0px;
     display: flex;
     justify-content: center;
+}
+
+/* Actual size info */
+.actual-size {
+    padding: 16px 28px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #F2F2F2;
+    color: black;
 }
 
 /* Button defaults */
