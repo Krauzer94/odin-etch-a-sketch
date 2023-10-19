@@ -46,9 +46,6 @@ body {
 
 /* Cell styling */
 .cells {
-    /* flex-grow: 1; */
-    /* flex-shrink: 1; */
-    /* flex-basis: 30px; */
     height: 30px;
     width: 30px;
     box-sizing: border-box;
