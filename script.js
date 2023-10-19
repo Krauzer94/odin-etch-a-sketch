@@ -25,8 +25,8 @@ function defaultGrid() {
 
 // Resize grid canva
 function newGrid(newSize) {
-    // Calculate new flex-basis
-    let newFlexBasis = 480 / newSize;
+    // Calculate new size
+    let newCellSize = 480 / newSize;
 
     // Remove existing cells
     while (matrix.hasChildNodes()) {
@@ -37,8 +37,8 @@ function newGrid(newSize) {
     for (let i = 0; i < newSize * newSize; i++) {
         let cells = document.createElement('div');
         cells.classList.add('cells');
-        cells.style.height = `${newFlexBasis}px`;
-        cells.style.width = `${newFlexBasis}px`;
+        cells.style.height = `${newCellSize}px`;
+        cells.style.width = `${newCellSize}px`;
         matrix.appendChild(cells);
     }
 }
@@ -50,11 +50,9 @@ sizeButton.addEventListener('click', () => {
     newGrid(newSize); // Append resized cells
 });
 
-// Hover color event // !! Behavior after resizing
-matrix.addEventListener('mouseover', function (e) {
-    if (e.target.matches('.matrix > div')) {
-        e.target.setAttribute('style', 'background-color: black');
-    }
+// Hover color event
+matrix.addEventListener('mouseover', (event) => {
+    event.target.style.backgroundColor = 'black';
 });
 
 // Reset grid canva

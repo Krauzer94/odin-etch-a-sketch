@@ -36,7 +36,6 @@ body {
 /* Matrix for cells */
 .matrix {
     box-sizing: content-box;
-    /* background-color: white; */
     border: 2px solid #202020;
     margin: 12px auto;
     height: 480px;
@@ -52,15 +51,6 @@ body {
     /* flex-basis: 30px; */
     height: 30px;
     width: 30px;
-    box-sizing: border-box;
-    border: 1px solid black;
-    background-color: white;
-}
-
-/* Resized cells */
-.new-cells {
-    flex-grow: 1;
-    flex-shrink: 1;
     box-sizing: border-box;
     border: 1px solid black;
     background-color: white;
