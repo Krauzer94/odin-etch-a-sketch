@@ -7,8 +7,7 @@
 
 // Sets major selectors
 const container = document.querySelector('.container');
-const gridCells = document.querySelectorAll('.cells');
-const newGridCells = document.querySelectorAll('.new-cells'); // ?? Not used yet
+const gridCells = document.querySelectorAll('.matrix > div');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -50,6 +49,23 @@ sizeButton.addEventListener('click', () => {
     newGrid(newSize); // Append resized cells
 });
 
+// Hover color event // !! Behavior after resizing
+matrix.addEventListener('mouseover', function (event) {
+    if (event.target.matches('.matrix > div')) {
+        event.target.setAttribute('style', 'background-color: black');
+    }
+});
+
+// Reset grid canva // !! New cells don't reset
+const resetButton = document.getElementById('reset-btn');
+resetButton.addEventListener('click', () => {
+    matrix.childNodes.forEach((child) => {
+        child.style.backgroundColor = 'white';
+    })
+});
+
+// TODO Optional feature section
+/*
 // TODO Random color mode
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
@@ -67,18 +83,4 @@ blackButton.addEventListener('click', () => {
     rainbowButton.style.borderColor = 'violet';
     rainbowButton.style.color = 'white';
 });
-
-// Reset grid canvas // ?? New cells don't reset
-const resetButton = document.getElementById('reset-btn');
-resetButton.addEventListener('click', () => {
-    gridCells.forEach(cell => {
-        cell.style.backgroundColor = 'white';
-    })
-});
-
-// Hover color event // !! Behavior after resizing
-matrix.addEventListener('mouseover', function (event) {
-    if (event.target.matches('.cells') || event.target.matches('.new-cells')) {
-        event.target.setAttribute('style', 'background-color: black');
-    }
-});
+*/
