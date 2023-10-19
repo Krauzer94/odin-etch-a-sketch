@@ -101,13 +101,13 @@ button {
 /* Rainbow btn */
 #rainbow-btn {
     background-color: violet;
-    border-color: violet;
+    border-color: white;
 }
 
 /* Black button */
 #black-btn {
     background-color: black;
-    border-color: black;
+    border-color: white;
 }
 
 /* Reset btn */

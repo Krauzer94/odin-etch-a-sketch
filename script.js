@@ -8,6 +8,7 @@
 // Sets major selectors
 const container = document.querySelector('.container');
 const gridCells = document.querySelectorAll('.cells');
+const optionsBtns = document.querySelectorAll('#rainbow-btn, #black-btn');
 
 // Central grid matrix
 const matrix = document.createElement('div');
@@ -48,11 +49,6 @@ sizeButton.addEventListener('click', () => {
     newGrid(newSize); // Resize grid canva
 });
 
-// Hover color event
-matrix.addEventListener('mouseover', (event) => {
-    event.target.style.backgroundColor = 'black';
-});
-
 // Reset grid canva
 const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener('click', () => {
@@ -61,23 +57,44 @@ resetButton.addEventListener('click', () => {
     })
 });
 
-// TODO Optional feature section
-/*
-// TODO Random color mode
+// Restyle rainbow button
+function activateRainbow() {
+    // Index [0] being rainbowButton
+    for (let i = 0; i < optionsBtns.length; i++) {
+        optionsBtns[0].style.borderColor = 'yellow';
+        optionsBtns[0].style.color = 'yellow';
+        optionsBtns[1].style.borderColor = 'white';
+        optionsBtns[1].style.color = 'white';
+    }
+}
+
+// Restyle black button
+function activateBlack() {
+    // Index [1] being blackButton
+    for (let i = 0; i < optionsBtns.length; i++) {
+        optionsBtns[0].style.borderColor = 'white';
+        optionsBtns[0].style.color = 'white';
+        optionsBtns[1].style.borderColor = 'yellow';
+        optionsBtns[1].style.color = 'yellow';
+    }
+}
+
+// Random color mode
 const rainbowButton = document.getElementById('rainbow-btn');
 rainbowButton.addEventListener('click', () => {
-    rainbowButton.style.borderColor = 'yellow';
-    rainbowButton.style.color = 'yellow';
-    blackButton.style.borderColor = 'black';
-    blackButton.style.color = 'white';
+    activateRainbow(); // Restyle active button
+    matrix.addEventListener('mouseover', (event) => {
+        // Random color implementation
+        const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        event.target.style.backgroundColor = randomColor;
+    });
 });
 
-// TODO Black color mode
+// Black color mode
 const blackButton = document.getElementById('black-btn');
 blackButton.addEventListener('click', () => {
-    blackButton.style.borderColor = 'yellow';
-    blackButton.style.color = 'yellow';
-    rainbowButton.style.borderColor = 'violet';
-    rainbowButton.style.color = 'white';
+    activateBlack(); // Restyle active button
+    matrix.addEventListener('mouseover', (event) => {
+        event.target.style.backgroundColor = 'black';
+    });
 });
-*/
