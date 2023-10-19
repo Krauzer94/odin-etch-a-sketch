@@ -25,13 +25,23 @@ function defaultGrid() {
 
 // Remove existing cells
 function removeAllCells() {
-    while (matrix.hasChildNodes()) {
-        matrix.removeChild(matrix.firstChild);
-    }
+    // REMOVED FUNCTION #1
 }
 
 // Resize grid canva
 function newGrid(newSize) {
+    // REMOVED FUNCTION #2
+}
+
+// Resize canva trigger
+const sizeButton = document.getElementById('size-btn');
+sizeButton.addEventListener('click', () => {
+    const newSize = prompt('Desired grid size (from 1 up to 100)');
+    // removeAllCells() // Remove existing cells
+    // newGrid(newSize); // Resize grid canva
+    while (matrix.hasChildNodes()) {
+        matrix.removeChild(matrix.firstChild);
+    }
     // Calculate new size
     let newCellSize = 480 / newSize;
     // Append new resized cells
@@ -42,14 +52,6 @@ function newGrid(newSize) {
         cells.style.width = `${newCellSize}px`;
         matrix.appendChild(cells);
     }
-}
-
-// Resize canva trigger
-const sizeButton = document.getElementById('size-btn');
-sizeButton.addEventListener('click', () => {
-    const newSize = prompt('Desired grid size (from 1 up to 100)');
-    removeAllCells() // Remove existing cells
-    newGrid(newSize); // Resize grid canva
 });
 
 // Hover color event
