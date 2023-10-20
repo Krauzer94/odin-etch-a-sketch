@@ -1,6 +1,6 @@
 /**
  * Canva elements defaults
- * Matrix grid size: 480x480
+ * Matrix grid size: 960x960
  * Cell number: 256 (16x16)
  * Cell default size: 30x30
  */
@@ -33,7 +33,7 @@ container.appendChild(actualSize);
 // Resize grid canva
 function newGrid(newSize) {
     // Calculate new size
-    let newCellSize = 480 / newSize;
+    let newCellSize = 960 / newSize;
     // Remove existing cells
     while (matrix.hasChildNodes()) {
         matrix.removeChild(matrix.firstChild);
